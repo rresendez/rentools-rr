@@ -8,7 +8,7 @@ var router = express.Router();
 //ensureLoggedIn is where the magic happens
 router.get('/',ensureLoggedIn, function(req, res, next) {
   console.log(req.user);
-  res.render('user', {user: req.user});
+  res.render('user', {title:"Profile", user: req.user});
 });
 
 module.exports = router;

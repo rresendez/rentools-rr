@@ -1,105 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-
-<!-- If IE use the latest rendering engine -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge"
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="Group 2" content="">
-
-    <title>Rent Tools <%= title %> </title>
-
-    <!-- Bootstrap Core CSS -->
-        <!-- Latest compiled and minified CSS -->
-
-   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
-
-    <!-- Custom CSS -->
-        <link href="stylesheets/style.css" rel="stylesheet">
-        <link href="stylesheets/nav.css" rel="stylesheet">
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-    </head>
-    <body>
-
-      <div id="entireNavbar">
-       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-           <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
-              <a class="navbar-brand" href="">Rental Tools</a>
-           </div>
-           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                 <!-- Residents below -->
-                 <li class="dropdown">
-                     <a href="/power">Power</a>
-                 </li>
-                 <li class="dropdown">
-                     <a href="/pneumatic">Pneumatic</a>
-                 </li>
-                 <li class="dropdown">
-                     <a href="/machine">Machine Tools</a>
-                 </li>
-                 <li class="dropdown">
-                     <a href="#" class="dropdown" data-toggle="dropdown">Menu<span class="caret"></span></a>
-                     <ul class="dropdown-menu">
-                       <li><a href="#">drop 1</a></li>
-                       <li><a href="#">drop 2</a></li>
-                     </ul>
-                 </li>
-
-                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/newitem">Add Item</a></li>
-                  <li><a href="#">Logout</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-           </div>
-           <!--/.navbar-collapse-->
-       </nav>
+  <% include partials/head %>
+</head>
+<body>
+  <header>
+    <% include partials/header %>
+  </header>
+  <div class="bgImage">
+    <div class="imgOverlay">
+      <div class="searchBox">
+        <form method="post" action="/search">
+          <input type="text" name="hello" id="hello">
+          <button type="submit" id="search" value="Search">Search</button>
+        </form>
       </div>
-
-
-<div class="bgImage">
-<div class="imgOverlay">
-<div class="searchBox">
-
-
-
-<form method="post" action="/search">
-
-<input type="text" name="hello" id="hello">
-<button type="submit" id="search" value="Search">Search</button>
-</form>
-
-</div>
-<!-- end searchBox -->
-</div>
-<!-- end imgOverlay -->
-</div>
-<!-- end bgImage -->
+    <!-- end searchBox -->
+    </div>
+    <!-- end imgOverlay -->
+  </div>
+  <!-- end bgImage -->
+  <footer class="footertwo">
+    <% include partials/footer %>
+  </footer>
 </body>
 </html>
 
-
 <div class="collage"></div>
 </div>
-<% include partials/footer %>

@@ -1,43 +1,49 @@
-<% include partials/navbar %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include partials/head %>
+</head>
+<body>
+  <header>
+    <% include partials/header %>
+  </header>
 
-<div class="row"><br>
+  <div class="row"><br>
 
-  <% items.forEach(function(item){%>
-    <div  style="margin: 200px;" class = "product-card">
-    <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="<%=item.image %>" style="height:200px" alt=""/>
+    <% items.forEach(function(item){%>
+      <div style="margin: 200px;" class = "product-card">
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+            <img src="<%=item.image %>" style="height:200px" alt=""/>
             <div class="caption">
-                <h4 class="pull-right">"product price"</h4>
-
-                <h4><a href="#"><%=item.name %></a>
-                </h4>
-                <p><%=item.description%></p>
-                <p><%=item.category%> </p>
-                <p><%=item.condition%> </p>
+              <h4 class="pull-right">"product price"</h4>
+              <h4><a href="#"><%=item.name %></a>
+              </h4>
+              <p><%=item.description%></p>
+              <p><%=item.category%> </p>
+              <p><%=item.condition%> </p>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
               <button type="button" name="button" class="btn-success">Rent</button>
             </div>
             <div class="ratings">
-                <p class="pull-right">15 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                </p>
+              <p class="pull-right">15 reviews</p>
+              <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+              </p>
             </div>
+          </div>
         </div>
+      </div>
+
+      <% });%>
     </div>
-  </div>
-
-<% });%>
-</div>
-
-</div>
-
-
-
-<% include partials/footer %>
+  <footer class="footertwo">
+    <% include partials/footer %>
+  </footer>
+</body>
+</html>

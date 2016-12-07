@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
-  <body>
 
-  <% include partials/navbar %>
+<head>
+  <% include partials/head %>
+</head>
 
+<body>
+  <header>
+    <% include partials/header %>
+  </header>
 
+  <a href="/newitem" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>Back to Dashboard</a>
 
-
-<a href="/newitem" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>Back to Dashboard</a>
-
-<div class="container editobject jumbotron">
-  <div class="thumbnail">
-    <img src="<%=items.image %>" alt="">
-  </div>
+  <div class="container editobject jumbotron">
+    <div class="thumbnail">
+      <img src="<%=items.image %>" alt="">
+    </div>
+    <div>
+      <h2><strong><%=items.name %></strong></h2>
+    </div>
+    <div>
+      <h4>Description: <%=items.description %></h4>
+    </div>
+    <div>
+      <h5>Condition: <%=items.condition %></h5>
+    </div>
+    <div>
+      <h5>Category: <%=items.category %></h5>
+    </div>
   <div>
-    <h2><strong><%=items.name %></strong></h2>
-  </div>
-  <div>
-    <h4>Description: <%=items.description %></h4>
-  </div>
-  <div>
-    <h5>Condition: <%=items.condition %></h5>
-  </div>
-  <div>
-    <h5>Category: <%=items.category %></h5>
-  </div>
-<div>
 
 
-</div>
-</div>
+  </div>
+  </div>
 
 <!-- attempt at doing a map -->
 <!-- <center>
@@ -93,12 +92,13 @@
 
       </form>
     </div>
-</div>
-</div>
+  </div>
+  </div>
 <!-- end of form section -->
 
+  <footer class="footertwo">
+    <% include partials/footer %>
+  </footer>
 
-<% include partials/footer %>
-
-  </body>
+</body>
 </html>

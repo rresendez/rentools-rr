@@ -1,23 +1,28 @@
 <% include partials/navbar %>
 <!DOCTYPE html>
 <html>
-  <head>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<head>
+  <% include partials/head %>
+</head>
+<body>
+  <header>
+    <% include partials/header %>
+  </header>
 
-    <h1>Item List</h1>
+  <h1>Item List</h1>
 
-
-    <% if(items.length<1){%>
-    <h1>Sowy, no items found :( </h1>
-    <% } %>
-    <% items.forEach(function(item){%>
-      <h2 style="text-align:center;">Item name: <%=item.name %></h2>
-      <img border="100" style="max-width:800px; border:5px solid black;" src="<%=item.image %>" alt="" ></br>
-      <b>Description: </b>
-      <p><%=item.description%></p>
-    <% });%>
+  <% if(items.length<1){%>
+  <h1>Sowy, no items found :( </h1>
+  <% } %>
+  <% items.forEach(function(item){%>
+    <h2 style="text-align:center;">Item name: <%=item.name %></h2>
+    <img border="100" style="max-width:800px; border:5px solid black;" src="<%=item.image %>" alt="" ></br>
+    <b>Description: </b>
+    <p><%=item.description%></p>
+  <% });%>
   <a href="/"><h1>Back</h1> </a>
-  </body>
+  <footer class="footertwo">
+    <% include partials/footer %>
+  </footer>
+</body>
 </html>
