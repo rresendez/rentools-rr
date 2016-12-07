@@ -12,6 +12,7 @@ var itemSchema = new Schema({
   condition: {type: String},
   date:{type: Date, default:Date.now },
   owner:{type:String},
+  ownerid:{type:String},
   borrower:{type:String},
   isAvailable:{type:Boolean, default:true}
   // address: {type: String}

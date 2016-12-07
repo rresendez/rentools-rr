@@ -7,7 +7,8 @@ var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
 //user dashboard
 router.get('/',ensureLoggedIn, function(req, res, next){
-  Item.find({}, null, {sort: {date: -1}}, function(err, items){
+  var ownerid = req.user.identities[0].user_id;
+  Item.find({ownerid: ownerid }, null, {sort: {date: -1}}, function(err, items){
 
     res.render('newitem', {title:"new item", items: items});
     //res.send(items);
@@ -33,10 +34,11 @@ router.post('/', function(req, res, next){
 //////////////////////////////////////////////////////////////////////
 
 //page with form to add item
-router.get('/additem', function(req, res, next){
+router.get('/additem',ensureLoggedIn, function(req, res, next){
 
     res.render('additem', {title:"Add new item"});
 });
+
 router.post('/additem', function(req, res, next){
 
   var item = new Item(req.body);
@@ -47,6 +49,15 @@ router.post('/additem', function(req, res, next){
 
   //now set item.image to multer_image url
   item.image = multer_image;
+
+  var firstName = req.user.name.givenName;
+  var lastName = req.user.name.familyName;
+  var name = firstName + " " + lastName;
+  item.owner = name;
+
+  var ownerid = req.user.identities[0].user_id;
+  item.ownerid = ownerid;
+  console.log("Owner id "+ item.ownerid);
 
   console.log(item);
   item.save(function(err){
