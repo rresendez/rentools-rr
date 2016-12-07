@@ -10,7 +10,10 @@ var itemSchema = new Schema({
   image: { type: String },
   category: {type: String},
   condition: {type: String},
-  date:{type: Date, default:Date.now }
+  date:{type: Date, default:Date.now },
+  owner:{type:String},
+  borrower:{type:String},
+  isAvailable:{type:Boolean, default:true}
   // address: {type: String}
   // charge: { length: {hourly, daily}, rate: {}
 });

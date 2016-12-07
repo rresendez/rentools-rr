@@ -1,23 +1,14 @@
-<% include ./layout %>
+<!DOCTYPE html>
 <html>
   <head>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-        <link rel='stylesheet' href='/stylesheets/nav.css' />
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <% include partials/head %>
   </head>
   <body>
-    <% include partials/navbar %>
-
+    <header>
+      <% include partials/header %>
+    </header>
 
     <a href="/newitem" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>Back to Dashboard</a>
-
-
-
-
-    <!-- <div class="spacingdiv">
-    </div> -->
-
 
     <div class = "container addform">
       <div class = "row">
@@ -48,46 +39,12 @@
             <button class = "form-control btn-danger" type="submit">Post Item</button>
           </form>
         </div>
+      </div>
   </div>
-</div>
 
-
-<!-- attempt at doing a map -->
-<!-- <center>
-  <h3>Location</h3>
-  <h2>this is where map would go</h2>
-</center>
-<div id="map">
-  <script>
-    function initMap() {
-    var mission = {lat: 26.215, lng: -98.325};
-    var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10,
-    center: mission
-    });
-    var marker = new google.maps.Marker({
-    position: mission,
-    map: map
-    });
-    }
-  </script>
-  <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBagv-43cAtG0CGsWpT7oBQbcSZbbfDxjA&amp;callback=initMap"></script>
-</div> -->
-<!-- end attempt at map -->
-
-<!-- <center>
-
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBagv-43cAtG0CGsWpT7oBQbcSZbbfDxjA&amp'></script><div style='overflow:hidden;height:400px;width:520px;'><center>
-
-<div id='gmap_canvas' style='height:400px;width:520px;'></div</>center><center>
-
-<style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://embedmap.org/'>google maps embedded</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=017f0faba8258278c1ecaaae3b565e55b6afab92'></center></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(26.311514809106242,-97.62959460270996),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(26.311514809106242,-97.62959460270996)});infowindow = new google.maps.InfoWindow({content:'<strong>map</strong><br>3904 nightingale avenue<br>78504 mcallen<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-</center> -->
-
-
-
-
-<% include partials/footertwo %>
+  <footer class="footertwo">
+    <% include partials/footer %>
+  </footer>
 
 </body>
 </html>
