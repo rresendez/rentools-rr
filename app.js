@@ -1,3 +1,6 @@
+var dotenv = require('dotenv');
+dotenv.load();
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,13 +8,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+//Require session
+var session = require('express-session');
 
 //Authentication
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 //Auth0 credentials
-var dotenv = require('dotenv');
-dotenv.load();
+
 // This will configure Passport to use Auth0
 var strategy = new Auth0Strategy({
     domain:       process.env.AUTH0_DOMAIN,
@@ -24,6 +28,16 @@ var strategy = new Auth0Strategy({
     // profile has all the information from the user
     return done(null, profile);
   });
+  passport.use(strategy);
+  // serialize
+  // This can be used to keep a smaller payload
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 //Select database form mongo
 
 var multer = require('multer');
@@ -33,8 +47,6 @@ mongoose.connect(process.env.RENTOOLS_URI);
 //initialize express
 var app = express();
 //initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -56,6 +68,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'shhhhhhhhh',
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/', routes);
 app.use('/users', users);

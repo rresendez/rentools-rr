@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var Item = require('../models/item');
+var passport = require('passport');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
 
 //user dashboard
-router.get('/', function(req, res, next){
+router.get('/',ensureLoggedIn, function(req, res, next){
   Item.find({}, null, {sort: {date: -1}}, function(err, items){
 
     res.render('newitem', {title:"new item", items: items});
