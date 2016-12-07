@@ -35,6 +35,7 @@ res.redirect('/');
 router.get('/callback',
 passport.authenticate('auth0', { failureRedirect: '/' }),
 function(req, res) {
+  console.log(req.session.passport.user._json.cover.id);
   res.redirect(req.session.returnTo || '/newitem');
 });
 

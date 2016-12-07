@@ -7,7 +7,7 @@ var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
 //user dashboard
 router.get('/',ensureLoggedIn, function(req, res, next){
-  Item.find({}, null, {sort: {date: -1}}, function(err, items){
+  Item.find({ownerid: req.session.passport.user._json.cover.id }, null, {sort: {date: -1}}, function(err, items){
 
     res.render('newitem', {title:"new item", items: items});
     //res.send(items);
@@ -33,7 +33,7 @@ router.post('/', function(req, res, next){
 //////////////////////////////////////////////////////////////////////
 
 //page with form to add item
-router.get('/additem', function(req, res, next){
+router.get('/additem',ensureLoggedIn, function(req, res, next){
 
     res.render('additem', {title:"Add new item"});
 });
@@ -47,7 +47,10 @@ router.post('/additem', function(req, res, next){
 
   //now set item.image to multer_image url
   item.image = multer_image;
+  item.owner = req.session.passport.user.nickname;
 
+  item.ownerid = req.session.passport.user._json.cover.id;
+  console.log("Owner id "+ item.ownerid);
   console.log(item);
   item.save(function(err){
     if(err)res.send(err);
