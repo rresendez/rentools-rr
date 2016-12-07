@@ -1,61 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
-  <body>
+<% include partials/navbar %>
 
-
-    <% include partials/navbar %>
-
-<center>
-  <h1>Check Out What's New</h1>
-</center>
-
-
-
-
-<div class="container">
-  <div class="row">
-    <% items.forEach(function(item){%>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <p><%=item.name %></p>
-
-        <!-- <a href="//<%=item._id%>"> -->
-          <a href="/newitem/<%=item._id%>">
-          <img src="<%=item.image%>" alt="" height="100px" width="100px">
-        </a>
-        <p><%=item.description%> </p>
-        <p><%=item.category%> </p>
-        <p><%=item.condition%> </p>
-        <!-- uncomment to check date -->
-        <!-- <p><%=item.date%> </p> -->
-        <div class="col-sm-12 col-md-4 col-lg-3">
-          <button type="button" name="button" class="btn-success">Button1</button>
+<div class="row"><br>
+<h1 style="text-align:center">Check Out What's New</h1>
+  <% items.forEach(function(item){%>
+    <div style="margin: 200px;" class = "product-card">
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="<%=item.image %>" style="height:200px" alt=""/>
+            <div class="caption">
+                <h4 class="pull-right">"product price"</h4>
+                <h4><a href="#"><%=item.name %></a>
+                </h4>
+                <p><%=item.description%></p>
+                <p><%=item.category%> </p>
+                <p><%=item.condition%> </p>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-3">
+              <button type="button" name="button" class="btn-success">Rent</button>
+            </div>
+            <div class="ratings">
+                <p class="pull-right">15 reviews</p>
+                <p>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                </p>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-3">
-           <!-- form(method='POST' action='/#{post._id}') -->
-
-           <form class="" action="/newitem/<%=item._id %>" method="POST">
-             <button type="submit" name="button" class="btn-success">DELETE</button>
-           </form>
-
-        </div>
-      </div>
-    <% });%>
+    </div>
   </div>
+
+<% });%>
+</div>
+
 </div>
 
 
 
-
-
-  </body>
-  <% include partials/footertwo %>
-
-
-
-
-
-</html>
+<% include partials/footertwo %>

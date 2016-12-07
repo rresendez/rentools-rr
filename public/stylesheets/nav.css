@@ -8,6 +8,10 @@
   text-align: center;
 }*/
 
+.navbar-default{
+  background-color: navy  !important;
+}
+
 .navbar-header{
  /*background-color: #CFB055  !important;*/
  /*gold*/

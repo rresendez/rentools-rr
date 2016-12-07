@@ -18,6 +18,7 @@ box-sizing: border: box;
 .imgOverlay {
 display: table-cell;
 vertical-align: middle;
+height: 1020px;
 }
 .searchBox {
    border: 1px solid #ccc;

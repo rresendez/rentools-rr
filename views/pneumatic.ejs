@@ -1,17 +1,21 @@
 <% include partials/navbar %>
-
 <div class="row"><br>
 
-
-    <div class = "product-card">
+  <% items.forEach(function(item){%>
+    <div style="margin: 200px;" class = "product-card">
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
-            <img src="" alt=""/>
+          <img src="<%=item.image %>" style="height:200px" alt=""/>
             <div class="caption">
                 <h4 class="pull-right">"product price"</h4>
-                <h4><a href="#">"product title"</a>
+                <h4><a href="#"><%=item.name %></a>
                 </h4>
-                <p>"description"</p>
+                <p><%=item.description%></p>
+                <p><%=item.category%> </p>
+                <p><%=item.condition%> </p>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-3">
+              <button type="button" name="button" class="btn-success">Rent</button>
             </div>
             <div class="ratings">
                 <p class="pull-right">15 reviews</p>
@@ -27,44 +31,8 @@
     </div>
   </div>
 
-
+<% });%>
 </div>
 
 </div>
-
-<!-- this is josh testing stuff -->
-<!-- remove at your discretion -->
-<!-- i was able to display an item, will now try to display all items of category -->
-<div class="container">
-  <div class="row">
-    <% items.forEach(function(item){%>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <p><%=item.name %></p>
-
-        <!-- <a href="//<%=item._id%>"> -->
-          <a href="/newitem/<%=item._id%>">
-          <img src="<%=item.image%>" alt="" height="100px" width="100px">
-        </a>
-        <p><%=item.description%> </p>
-        <p><%=item.category%> </p>
-        <p><%=item.condition%> </p>
-        <div class="col-sm-12 col-md-4 col-lg-3">
-          <button type="button" name="button" class="btn-success">Button1</button>
-        </div>
-        <div class="col-sm-12 col-md-4 col-lg-3">
-           <!-- form(method='POST' action='/#{post._id}') -->
-
-           <form class="" action="/newitem/<%=item._id %>" method="POST">
-             <button type="submit" name="button" class="btn-success">DELETE</button>
-           </form>
-
-        </div>
-      </div>
-    <% });%>
-  </div>
-</div>
-<!-- all items of category are populating on page.  They are organized by date, most recent item appearing first
-style however you want.  this was just a test.
-end of josh testing stuff -->
-
 <% include partials/footer %>
