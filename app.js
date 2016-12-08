@@ -52,6 +52,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var newitem = require('./routes/newitem');
 var search = require('./routes/search');
+var rent = require('./routes/rent');
 
 
 
@@ -82,6 +83,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/newitem', newitem);
 app.use('/search', search);
+app.use('/rent', rent);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

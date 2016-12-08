@@ -35,7 +35,7 @@ res.redirect('/');
 router.get('/callback',
 passport.authenticate('auth0', { failureRedirect: '/' }),
 function(req, res) {
-  res.redirect(req.session.returnTo || '/newitem');
+  res.redirect(req.session.returnTo || '/newitem'||'/search');
 });
 
 // /* GET powertools page. */
